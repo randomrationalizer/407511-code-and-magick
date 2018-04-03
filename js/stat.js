@@ -83,6 +83,7 @@ window.renderStatistics = function (ctx, names, times) {
         ctx,
         Math.floor(times[i]),
         CLOUD_GAP + 2 * TEXT_HEIGHT + GAP + barHeight - currentBarHeight,
-        '#000');
+        '#000'
+    );
   }
 };
