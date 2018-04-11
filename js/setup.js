@@ -9,14 +9,20 @@ var wizardsCount = 4;
 var userProfile = document.querySelector('.setup');
 userProfile.classList.remove('hidden');
 
+// Функция, возвращающая случайный элемент массива
+var pickRandomItem = function (arr) {
+  var randomItem = arr[Math.floor(Math.random() * (arr.length - 1))];
+  return randomItem;
+};
+
 // Функция, создающая массив случайно сгенерированных объектов
 var createWizardsArray = function (names, surnames, coats, eyes, count) {
   var wizardsArray = [];
   for (var i = 0; i < count; i++) {
     var wizard = {};
-    wizard.name = names[Math.floor(Math.random() * (names.length - 1))] + ' ' + surnames[Math.floor(Math.random() * (surnames.length - 1))];
-    wizard.coatColor = coats[Math.floor(Math.random() * (coats.length - 1))];
-    wizard.eyesColor = eyes[Math.floor(Math.random() * (eyes.length - 1))];
+    wizard.name = pickRandomItem(names) + ' ' + pickRandomItem(surnames);
+    wizard.coatColor = pickRandomItem(coats);
+    wizard.eyesColor = pickRandomItem(eyes);
     wizardsArray[i] = wizard;
   }
   return wizardsArray;
